@@ -39,6 +39,8 @@ def cal_levenshtein_distance(self, t1, t2):
         
 ```
 
+<hr>
+
 ### * 레벤슈타인 거리 계산 함수를 이용하여 입력 텍스트(input_text)와 계산한 결과 중 최소값 반환 함수
 
 ```python
@@ -51,4 +53,17 @@ def get_levenshtein_answer(self, input_text):
     best_match_index = _cal_result.index(min(_cal_result))
     # 가장 유사한 질문에 해당하는 답변을 반환
     return self.answers[best_match_index]
+```
+
+<hr>
+
+### * 챗봇 실행부에 적용
+
+```python
+while True:
+    input_sentence = input('You: ')
+    if input_sentence.lower() == '종료':
+        break
+    response = chatbot.get_levenshtein_answer(input_sentence)
+    print('Chatbot:', response)
 ```
